@@ -1,21 +1,25 @@
 import { Button, ButtonGroup, Grid, GridItem, Show } from "@chakra-ui/react";
 import Navbar from "./compoments/Navbar";
 import GameGrid from "./compoments/GameGrid";
-import GenreList from "./compoments/GenereList";
+import GenreList from "./compoments/GenreList";
 
 function App() {
   return (
     <Grid
-      gridTemplateAreas={{
+      templateAreas={{
         base: `"nav" "main"`,
         lg: `"nav nav" "aside main"`,
+      }}
+      templateColumns={{
+        base: "1fr",
+        lg: "200px 1fr",
       }}
     >
       <GridItem area="nav">
         <Navbar></Navbar>
       </GridItem>
       <Show above="lg">
-        <GridItem area="aside">
+        <GridItem area="aside" paddingX={5}>
           <GenreList />
         </GridItem>
       </Show>
